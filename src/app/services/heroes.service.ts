@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable()
 export class HeroesService {
@@ -56,7 +57,7 @@ export class HeroesService {
     ];
 
 
-    constructor() {
+    constructor(private firestore: AngularFirestore) {
         console.log('service funcionando');
     }
     getHeroes() {
@@ -75,6 +76,17 @@ export class HeroesService {
             }
         }
         return heroesArray;
+    }
+    getHeroesFirestore() {
+      return this.firestore.collection('heros').snapshotChanges();
+    }
+    getHeroFirestore(documentID: string) {
+
+        return this.firestore.collection('heros').doc(documentID).snapshotChanges();
+
+    }
+    createHero(data: Hero) {
+      return this.firestore.collection('heros').add(data);
     }
 }
 

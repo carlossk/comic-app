@@ -3,16 +3,17 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { TestComponent } from './components/test/test.component';
 
 const APP_ROUTES: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'heroes', component: HeroesComponent },
-    { path: 'heroes/:termino', component: HeroesComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'hero/:id', component: HeroComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'heroes', component: HeroesComponent },
+  { path: 'heroes/:termino', component: HeroesComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'hero/:id', component: HeroComponent },
+  { path: 'test', component: TestComponent },
 
-    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
-export const APP_ROUTING = RouterModule.forRoot( APP_ROUTES );
-
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

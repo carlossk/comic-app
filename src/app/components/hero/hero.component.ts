@@ -9,6 +9,7 @@ import { HeroesService, Hero } from '../../services/heroes.service';
 export class HeroComponent implements OnInit {
   hero: Hero;
   constructor(private _activateRoute: ActivatedRoute, private _herosService: HeroesService) {
+    console.log(this._activateRoute.params);
     this._activateRoute.params.subscribe(params => {
       this.hero = this._herosService.getHero(params.id);
       console.log(this.hero);
